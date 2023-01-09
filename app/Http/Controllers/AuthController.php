@@ -12,7 +12,7 @@ use Illuminate\Validation\Rules\Password;
 /**
  * Class AuthController
  *
- * @author  Zura Sekhniashvili <zurasekhniashvili@gmail.com>
+ * @author  Steve Kiplangat <stevekiplangat254@gmail.com>
  * @package App\Http\Controllers
  */
 class AuthController extends Controller

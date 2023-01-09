@@ -31,12 +31,47 @@
               <!-- Profile dropdown -->
               <Menu as="div" class="ml-3 relative">
                 <div>
-                  <MenuButton class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                  <MenuButton
+                    class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  >
                     <span class="sr-only">Open user menu</span>
-                    <img class="h-8 w-8 rounded-full" :src="user.imageUrl" alt="" />
+
+                    <div class="mx-3">
+                      <div
+                        class="text-left text-base font-medium leading-none text-white"
+                      >
+                        {{ user.name }}
+                      </div>
+                      <div
+                        class="text-sm font-medium leading-none text-gray-400"
+                      >
+                        {{ user.email }}
+                      </div>
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="white"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
                   </MenuButton>
                 </div>
-                <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                <transition
+                  enter-active-class="transition ease-out duration-100"
+                  enter-from-class="transform opacity-0 scale-95"
+                  enter-to-class="transform opacity-100 scale-100"
+                  leave-active-class="transition ease-in duration-75"
+                  leave-from-class="transform opacity-100 scale-100"
+                  leave-to-class="transform opacity-0 scale-95"
+                >
                   <MenuItems
                     class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
@@ -96,6 +131,7 @@
       </DisclosurePanel>
     </Disclosure>
     <router-view></router-view>
+    <Notification />
   </div>
 </template>
 
@@ -113,10 +149,11 @@ import { BellIcon, MenuIcon, XIcon } from "@heroicons/vue/outline";
 import { useStore } from "vuex";
 import { computed } from "vue";
 import { useRouter } from "vue-router";
+import Notification from "./Notification.vue";
 
 const navigation = [
   { name: "Dashboard", to: { name: "Dashboard" } },
-  { name: "Auction", to: { name: "Auction" } },
+  { name: "Auctions", to: { name: "Auctions" } },
 ];
 
 export default {
@@ -131,6 +168,7 @@ export default {
     BellIcon,
     MenuIcon,
     XIcon,
+    Notification,
   },
   setup() {
     const store = useStore();
@@ -143,6 +181,8 @@ export default {
         });
       });
     }
+
+
 
     return {
       user: computed(() => store.state.user.data),

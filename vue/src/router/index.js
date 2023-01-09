@@ -3,9 +3,8 @@ import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import NotFound from "../views/NotFound.vue";
-import Auction from "../views/Auction.vue";
+import Auctions from "../views/Auctions.vue";
 import AuctionView from "../views/AuctionView.vue";
-import AuctionInfo from "../views/AuctionInfo.vue";
 import DefaultLayout from "../components/DefaultLayout.vue";
 import AuthLayout from "../components/AuthLayout.vue";
 import store from "../store";
@@ -18,10 +17,9 @@ const routes = [
     meta: { requiresAuth: true },
     children: [
       { path: "/dashboard", name: "Dashboard", component: Dashboard },
-      { path: "/auction", name: "Auction", component: Auction },
-      { path: "/auction/create", name: "AuctionCreate", component: AuctionView },
-      { path: "/auction/info", name: "AuctionInfo", component: AuctionInfo },
-      { path: "/auction/:id", name: "AuctionView", component: AuctionView },
+      { path: "/auctions", name: "Auctions", component: Auctions },
+      { path: "/auctions/create", name: "AuctionCreate", component: AuctionView },
+      { path: "/auctions/:id", name: "AuctionView", component: AuctionView },
     ],
   },
   {

@@ -2,7 +2,7 @@
   <!-- Condition index -->
   <div class="flex items-center justify-between">
     <h3 class="text-lg font-bold">
-      {{ index + 1 }}. {{ model.condition }}
+      {{ index + 1 }}. 
     </h3>
 
 
